@@ -42,8 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base.cs" />
+    <Compile Include="FileSystem.cs" />
     <Compile Include="Folder.cs" />
+    <Compile Include="TestClass.cs" />
     <Compile Include="User.cs" />
     <Compile Include="File.cs" />
     <Compile Include="Program.cs" />
