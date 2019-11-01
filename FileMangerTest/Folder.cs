@@ -5,8 +5,8 @@ namespace FileMangerTest
 {
     public class Folder : FileSystem
     {
-        public List<FileSystem> SubFileSystems { get; set; }
-        public Folder ParentFolder { get; set; }
+        private List<FileSystem> SubFileSystems { get; set; }
+        private Folder ParentFolder { get; set; }
 
         public void AddSubFileSystem(FileSystem fileSys)
         {
@@ -31,6 +31,22 @@ namespace FileMangerTest
             var totalSize = 0;
             SubFileSystems?.ForEach(x => { totalSize += x.GetSize(); });
             return totalSize;
+        }
+
+        public override void Rename(string newName)
+        {
+            if (IsValidName(newName))
+                Name = newName;
+        }
+
+        protected override bool IsValidName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Folder(string name, List<FileSystem> subFileSystems=null) : base(name)
+        {
+            SubFileSystems = subFileSystems;
         }
     }
 }

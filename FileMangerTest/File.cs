@@ -16,6 +16,22 @@ namespace FileMangerTest
         {
             return Size;
         }
+
+        public override void Rename(string newName)
+        {
+            if (IsValidName(newName))
+                Name = newName;
+        }
+
+        protected override bool IsValidName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public File(string name, int size) : base(name)
+        {
+            Size = size;
+        }
     }
 
     public enum Format
