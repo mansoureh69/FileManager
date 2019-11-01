@@ -18,6 +18,10 @@ namespace FileMangerTest
             var parentFolder = new Folder("ParentFolder");
             parentFolder.AddSubFileSystem(folder);
             parentFolder.AddSubFileSystem(file);
+            var folders = parentFolder.GetSubFolders();
+            var second = new Folder("f3");
+            folders.Add(second);
+            var test = parentFolder.GetSubFolders();
             var sizeBeforeRemove = parentFolder.GetSize();
             Console.WriteLine(sizeBeforeRemove);
             parentFolder.RemoveSubFileSystem(file);

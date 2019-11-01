@@ -5,7 +5,7 @@ namespace FileMangerTest
 {
     public class Folder : FileSystem
     {
-        private List<FileSystem> SubFileSystems { get; set; }
+        protected List<FileSystem> SubFileSystems {   get; private set; }
         private Folder ParentFolder { get; set; }
 
         public void AddSubFileSystem(FileSystem fileSys)
@@ -24,6 +24,11 @@ namespace FileMangerTest
                 throw new Exception();
             SubFileSystems.Remove(fileSystem);
 
+        }
+
+        public List<FileSystem> GetSubFolders()
+        {
+            return SubFileSystems;
         }
        
         public override int GetSize()
