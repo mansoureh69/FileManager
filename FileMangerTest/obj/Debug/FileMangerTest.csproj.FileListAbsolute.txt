@@ -1,0 +1,2 @@
+C:\Users\asus\source\repos\New folder\FileManager\FileMangerTest\obj\Debug\FileMangerTest.csprojAssemblyReference.cache
+C:\Users\asus\source\repos\New folder\FileManager\FileMangerTest\obj\Debug\FileMangerTest.csproj.CoreCompileInputs.cache
