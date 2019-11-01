@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="FileMangerTest.FileSystem">
+    <Position X="1.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAECAIAEAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Base.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CreatorUser" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FileMangerTest.File">
+    <Position X="3.25" Y="3.5" Width="1.5" />
+    <InheritanceLine Type="FileMangerTest.FileSystem" ManuallyRouted="true">
+      <Path>
+        <Point X="2.75" Y="2.44" />
+        <Point X="2.75" Y="3.096" />
+        <Point X="4" Y="3.096" />
+        <Point X="4" Y="3.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgACAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>File.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FileFormat" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FileMangerTest.Folder">
+    <Position X="0.5" Y="3.5" Width="2" />
+    <AssociationLine Name="SubFileSystems" Type="FileMangerTest.FileSystem" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="0.969" Y="3.5" />
+        <Point X="0.969" Y="2.25" />
+        <Point X="1.75" Y="2.25" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AABAAABAAAAAAAKAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Folder.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ParentFolder" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="SubFileSystems" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="FileMangerTest.Program" Collapsed="true">
+    <Position X="7.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileMangerTest.User">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="FileMangerTest.Format">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAQAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>File.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

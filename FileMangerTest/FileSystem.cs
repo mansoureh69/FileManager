@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace FileMangerTest
 {
-    public abstract class Base
+    public abstract class FileSystem
     {
         public String Title { get; set; }
         public DateTime CreationDateTime { get; set; }
         public DateTime LastModifiedDateTime { get; set; }
         public User CreatorUser { get; set; }
-         public int Size { get; set; }
+        public abstract int GetSize();
     }
 }

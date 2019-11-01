@@ -3,52 +3,34 @@ using System.Collections.Generic;
 
 namespace FileMangerTest
 {
-    public class Folder : Base
+    public class Folder : FileSystem
     {
-        public List<Folder> SubFolders { get; set; }
-        public List<File> Files { get; set; }
+        public List<FileSystem> SubFileSystems { get; set; }
         public Folder ParentFolder { get; set; }
 
-        public void AddFile(File file)
+        public void AddSubFileSystem(FileSystem fileSys)
         {
-            if (Files != null)
-                Files.Add(file);
+            if (SubFileSystems != null)
+                SubFileSystems.Add(fileSys);
             else
 
-                Files = new List<File> { file };
+                SubFileSystems = new List<FileSystem> { fileSys };
 
         }
-        public void RemoveFile(File file)
+        
+        public void RemoveSubFileSystem(FileSystem fileSystem)
         {
-            if (Files == null)
+            if (SubFileSystems == null)
                 throw new Exception();
-            Files.Remove(file);
+            SubFileSystems.Remove(fileSystem);
 
         }
-        public void RemoveSubFolder(Folder folder)
-        {
-            if (SubFolders == null)
-                throw new Exception();
-
-            SubFolders.Remove(folder);
-
-        }
-
-        public int GetSizeOfFolder()
+       
+        public override int GetSize()
         {
             var totalSize = 0;
-            if (SubFolders != null)
-                foreach (var folder in SubFolders)
-                {
-                    totalSize += folder.GetSizeOfFolder();
-                }
-            if(Files!=null)
-                foreach (var file in Files)
-                {
-                    totalSize += file.GetSizeOfFile();
-                }
+            SubFileSystems?.ForEach(x => { totalSize += x.GetSize(); });
             return totalSize;
         }
-
     }
 }

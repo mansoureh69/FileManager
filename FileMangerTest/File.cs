@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace FileMangerTest
 {
-    public class File : Base
+    public class File : FileSystem
     {
         public Format FileFormat { get; set; }
-        public int GetSizeOfFile()
+        public int Size { get; set; }
+        
+        public override int GetSize()
         {
             return Size;
         }
-
     }
 
     public enum Format
