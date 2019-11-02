@@ -1,40 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FileMangerTest
 {
     public class Folder : FileSystem
     {
-        protected List<FileSystem> SubFileSystems {   get; private set; }
-        private Folder ParentFolder { get; set; }
+        private List<FileSystem> _subFileSystems;
 
         public void AddSubFileSystem(FileSystem fileSys)
         {
-            if (SubFileSystems != null)
-                SubFileSystems.Add(fileSys);
+            if (_subFileSystems != null)
+                _subFileSystems.Add(fileSys);
             else
 
-                SubFileSystems = new List<FileSystem> { fileSys };
+                _subFileSystems = new List<FileSystem> { fileSys };
 
         }
         
         public void RemoveSubFileSystem(FileSystem fileSystem)
         {
-            if (SubFileSystems == null)
+            if (_subFileSystems == null)
                 throw new Exception();
-            SubFileSystems.Remove(fileSystem);
+            _subFileSystems.Remove(fileSystem);
 
         }
 
-        public List<FileSystem> GetSubFolders()
-        {
-            return SubFileSystems;
-        }
+        //public List<FileSystem> GetSubFolders()
+        //{
+        //    return SubFileSystems;
+        //}
        
         public override int GetSize()
         {
             var totalSize = 0;
-            SubFileSystems?.ForEach(x => { totalSize += x.GetSize(); });
+            _subFileSystems?.ForEach(x => { totalSize += x.GetSize(); });
             return totalSize;
         }
 
@@ -46,12 +46,28 @@ namespace FileMangerTest
 
         protected override bool IsValidName(string name)
         {
+            return !IsDuplicateName(name);
+        }
+
+        protected override bool IsDuplicateName(string name)
+        {
             throw new NotImplementedException();
         }
 
+       
         public Folder(string name, List<FileSystem> subFileSystems=null) : base(name)
         {
-            SubFileSystems = subFileSystems;
+            _subFileSystems = subFileSystems;
+        }
+
+        public List<FileSystem> GetFileSystems()
+        {
+            return  Clone(_subFileSystems);
+        }
+
+       private  static  List<T> Clone<T>( List<T> listToClone) where T : ICloneable
+        {
+            return listToClone.Select(item => (T)item.Clone()).ToList();
         }
     }
 }

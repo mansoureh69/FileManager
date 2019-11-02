@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FileMangerTest
 {
@@ -25,9 +20,14 @@ namespace FileMangerTest
 
         protected override bool IsValidName(string name)
         {
-            throw new NotImplementedException();
+            return !IsDuplicateName(name);
         }
 
+        protected override bool IsDuplicateName(string name)
+        {
+            throw new NotImplementedException();
+        }
+        
         public File(string name, int size) : base(name)
         {
             Size = size;
@@ -38,7 +38,7 @@ namespace FileMangerTest
     {
         Pdf = 1,
         Doc,
-        Txt,
+        Txt
 
     }
 }
