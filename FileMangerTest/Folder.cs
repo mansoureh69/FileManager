@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace FileMangerTest
 {
@@ -65,9 +64,6 @@ namespace FileMangerTest
             return  Clone(_subFileSystems);
         }
 
-       private  static  List<T> Clone<T>( List<T> listToClone) where T : ICloneable
-        {
-            return listToClone.Select(item => (T)item.Clone()).ToList();
-        }
+      
     }
 }

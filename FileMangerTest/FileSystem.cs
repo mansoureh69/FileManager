@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace FileMangerTest
 {
@@ -23,6 +25,10 @@ namespace FileMangerTest
         public object Clone()
         {
             return (FileSystem)MemberwiseClone();
+        }
+        protected static List<T> Clone<T>(List<T> listToClone) where T : ICloneable
+        {
+            return listToClone.Select(item => (T)item.Clone()).ToList();
         }
 
     }
